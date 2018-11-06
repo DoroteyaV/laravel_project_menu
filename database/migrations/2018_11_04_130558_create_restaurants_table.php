@@ -18,8 +18,6 @@ class CreateRestaurantsTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->integer('capacity_friday');
-            $table->unsignedInteger('menu_id');
-            $table->foreign('menu_id')->references('id')->on('menu');
             $table->timestamps();
         });
     }
