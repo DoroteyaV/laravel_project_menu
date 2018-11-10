@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreRestaurantRequest;
+use App\Restaurant;
+use App\Menu;
 
 class RestaurantsController extends Controller
 {
@@ -13,7 +16,9 @@ class RestaurantsController extends Controller
      */
     public function index()
     {
-        //
+        $restaurant = Restaurant::all();
+
+        return view('restaurant.index',compact('restaurant'));
     }
 
     /**
@@ -23,7 +28,8 @@ class RestaurantsController extends Controller
      */
     public function create()
     {
-        //
+		$menu = Menu::with('restaurant')->get();
+        return view('restaurant.create',compact('menu'));
     }
 
     /**
@@ -32,9 +38,16 @@ class RestaurantsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+     public function store(Request $request)
+    {    
+        
+        Restaurant::create([
+            'name' => $request->name,
+            'address' => $request->addres,
+        ]);
+        
+        return redirect()->back()
+                ->with('message', 'Успешно въведен ресторант в списъка!');
     }
 
     /**

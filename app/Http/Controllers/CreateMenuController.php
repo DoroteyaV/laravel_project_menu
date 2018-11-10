@@ -1,22 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-use App\User;
-
-class HomeController extends Controller
+use App\Menu;
+use App\Dish;
+use App\Drink;
+use App\Category;
+class MenusController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-   $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -24,9 +15,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $menu = Menu::with('restaurant')->get();
+		$dish = Dish::all();
+        return view('menu.create',compact(['menu'],['dish']));
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -57,7 +49,7 @@ class HomeController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**

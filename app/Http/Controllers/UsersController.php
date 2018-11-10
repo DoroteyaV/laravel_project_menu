@@ -1,22 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\User;
-
-class HomeController extends Controller
+use Illuminate\Http\Request;
+class UsersController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-   $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +12,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = User::all();
+
+        return view('home', compact('user'));
     }
 
 
@@ -57,7 +47,7 @@ class HomeController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Menu;
+use App\Dish;
+use App\Drink;
+use App\Category;
 class MenusController extends Controller
 {
     /**
@@ -13,7 +16,9 @@ class MenusController extends Controller
      */
     public function index()
     {
-        //
+        $menu = Menu::with('restaurant')->get();
+		$dish = Dish::all();
+        return view('menu.index',compact(['menu'],['dish']));
     }
 
     /**
@@ -23,7 +28,8 @@ class MenusController extends Controller
      */
     public function create()
     {
-        //
+		$dish = Dish::all();
+       return view('menu.create',compact('dish'));
     }
 
     /**
@@ -34,7 +40,19 @@ class MenusController extends Controller
      */
     public function store(Request $request)
     {
-        //
+		Dish::create([
+            'name' => $request->dishname,
+			'price' => $request->dishprice,
+			'quantity' => $request->dishquantity,
+        ]);
+		Drink::create([
+            'name' => $request->drinkname,
+			'price' => $request->drinkprice,
+			'quantity' => $request->drinkquantity,
+        ]);
+		 Category::create([
+            'name' => $request->categoryname,
+        ]);
     }
 
     /**

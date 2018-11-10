@@ -3,28 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-
-class HomeController extends Controller
+use App\Menu;
+class RestaurantMenuController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-   $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+     public function index()
     {
-        return view('home');
+        $menu = Menu::with('restaurant')->get();
+
+        return view('restaurant.restaurantmenu',compact('menu'));
     }
 
 
@@ -57,7 +48,7 @@ class HomeController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**
