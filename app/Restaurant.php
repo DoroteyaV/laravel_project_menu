@@ -9,7 +9,8 @@ class Restaurant extends Model
     protected $fillable = [
     						'name',
     						'address',
-    						'capacity_friday'
+    						'capacity_friday',
+							'menu_id'
     					];
 
     public function menu()

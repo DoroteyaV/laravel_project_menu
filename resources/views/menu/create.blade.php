@@ -6,8 +6,17 @@
 
 <div style="text-align:center">
 <h1>
-	Въведи нов ресторант!
+	Въведи храна и напитки
 </h1>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <form action="{{ route('menu.store')}}" method="POST">
 {{ csrf_field() }}
 	<p>Името на храната</p>
@@ -26,7 +35,8 @@
 	<p></p>
 	<p>Името на категорията</p>
 	<input type="text" name="categoryname">
-	<select name="course_id">
+	<p></p>
+	<select name="dish_id">
 		@foreach( $dish as $key )
 		<option value="{{ $key->id }}">{{ $key->name }}</option>
 		@endforeach

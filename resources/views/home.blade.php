@@ -13,8 +13,15 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+					<form>
+					{{ csrf_field() }}
+					<select name="restaurant_id">
+					@foreach( $restaurant as $rest )
+						<option value="{{ $rest->id }}">{{ $rest->name }}</option>
+					@endforeach
+					</select>
+					</form>
+					</div>
                 </div>
             </div>
         </div>

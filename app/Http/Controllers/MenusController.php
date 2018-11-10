@@ -40,6 +40,21 @@ class MenusController extends Controller
      */
     public function store(Request $request)
     {
+		 
+         $this->validate($request, [
+            'dishname' => 'required|min:2', 
+			'drinkname' => 'required|min:2',
+			'drinquantity' => 'required|min:0', 
+			'dishquantity' => 'required|min:0', 
+			'dishnprice' => 'required|min:0', 
+			'drinkprice' => 'required|min:0',
+			'category' => 'required',
+			'dish_id' => 'required',
+		], 
+		[
+			'name.min' => 'името не може да е с по-малко от 2 знака',
+			'capacity_friday.min'=> 'свободните места не може да са по малко от 0'
+		]);
 		Dish::create([
             'name' => $request->dishname,
 			'price' => $request->dishprice,
@@ -52,6 +67,7 @@ class MenusController extends Controller
         ]);
 		 Category::create([
             'name' => $request->categoryname,
+			'dish_id' => $request->dish_id
         ]);
     }
 

@@ -14,16 +14,6 @@
 		
 	@endforeach
 	
-	@foreach($dish as $key)
-		
-		<td>
-			{{ $key->name}}
-		</td>
-		<td>
-			{{ $key->price}}
-		</td>
-		
-	@endforeach
 	</tr>
 </table>
 <p></p>

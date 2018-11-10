@@ -13,9 +13,9 @@ class RestaurantMenuController extends Controller
      */
      public function index()
     {
-        $menu = Menu::with('restaurant')->get();
+        $menu = Menu::with('menu_id')->get();
 
-        return view('restaurant.restaurantmenu',compact('menu'));
+        return view('restaurant.menu',compact('menu'));
     }
 
 

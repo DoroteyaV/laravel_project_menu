@@ -40,10 +40,22 @@ class RestaurantsController extends Controller
      */
      public function store(Request $request)
     {    
-        
+         $this->validate($request, [
+            'name' => 'required|min:2', 
+			'address' => 'required|max:100',
+			'menu_id' => 'required',
+			'capacity_friday' => 'required|integer|min:0'
+		], 
+		[
+			'name.min' => 'името не може да е с по-малко от 2 знака',
+			'capacity_friday.min'=> 'свободните места не може да са по малко от 0'
+		]);
+
         Restaurant::create([
             'name' => $request->name,
-            'address' => $request->addres,
+            'address' => $request->address,
+			'menu_id' => $request->menu_id,
+			'capacity_friday'=> $request->capacity_friday
         ]);
         
         return redirect()->back()

@@ -8,6 +8,15 @@
 <h1>
 	Въведи нов ресторант!
 </h1>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <form action="{{ route('restaurant.store')}}" method="POST">
 {{ csrf_field() }}
 	<p>Името на ресторанта</p>
@@ -19,7 +28,7 @@
 	<p></p>
 	<select name="menu_id">
 		@foreach( $menu as $key )
-		<option value="{{ $key->id }}">{{ $key->id }}</option>
+		<option value="{{ $key->id }}">{{ $key->name }}</option>
 		@endforeach
 	</select>
 	<p></p>
