@@ -15,7 +15,7 @@
 // });
 Route::group(['middleware' => 'auth'], function(){
 	
-//Route::post('/menu', 'MenusController@index');
+Route::get('/', 'HomeController@index');
 Route::resource('menu', 'MenusController');
 Route::resource('restaurant', 'RestaurantsController');
 });
