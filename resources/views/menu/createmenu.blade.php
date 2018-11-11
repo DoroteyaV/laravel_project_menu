@@ -19,31 +19,8 @@
 @endif
 <form action="{{ route('menu.store')}}" method="POST">
 {{ csrf_field() }}
-	<p>Името на храната</p>
-	<input type="text" name="dishname">
-	<p>Цена на храната</p>
-	<input type="text" name="dishprice">
-	<p>Количество на храната</p>
-	<input type="number" name="dishquantity">
-	<p></p>
-	<p>Името на напитката</p>
-	<input type="text" name="drinkname">
-	<p>Цена на напитката</p>
-	<input type="text" name="drinkprice">
-	<p>Количество на напитката</p>
-	<input type="number" name="drinkquantity">
-	<p></p>
-	<p>Името на категорията</p>
-	<input type="text" name="categoryname">
-	<p></p>
-	<select name="dish_id">
-		@foreach( $dish as $key )
-		<option value="{{ $key->id }}">{{ $key->name }}</option>
-		@endforeach
-	</select>
-	<p></p>
 	<p>Името на Менюто</p>
-	<input type="text" name="menuname">
+	<input type="text" name="categoryname">
 	<p></p>
 	<select name="drink_id">
 		@foreach( $drink as $drink )
