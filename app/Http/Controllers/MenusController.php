@@ -48,11 +48,11 @@ class MenusController extends Controller
          $this->validate($request, [
             'dishname' => 'required|min:2', 
 			'drinkname' => 'required|min:2',
-			'drinquantity' => 'required|min:0', 
+			'drinkquantity' => 'required|min:0', 
 			'dishquantity' => 'required|min:0', 
-			'dishnprice' => 'required|min:0', 
+			'dishprice' => 'required|min:0', 
 			'drinkprice' => 'required|min:0',
-			'category' => 'required',
+			'categoryname' => 'required',
 			'dish_id' => 'required',
 		], 
 		[
@@ -74,7 +74,7 @@ class MenusController extends Controller
 			'dish_id' => $request->dish_id
         ]);
 		Menu::create([
-				'name' => $request->categoryname,
+				'name' => $request->menuname,
 				'drink_id' => $request->drink_id,
 				'category_id'=>$request->category_id,
 		]);

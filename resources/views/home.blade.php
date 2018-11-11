@@ -13,13 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-					<form>
-					{{ csrf_field() }}
-					<select name="restaurant_id">
-					@foreach( $restaurant as $rest )
-						<option value="{{ $rest->id }}">{{ $rest->name }}</option>
-					@endforeach
-					</select>
+					<a href="{{route('restaurant.index')}}">Ресторанти</а>
 					</form>
 					</div>
                 </div>

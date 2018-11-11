@@ -6,18 +6,21 @@ use App\Menu;
 use App\Dish;
 use App\Drink;
 use App\Category;
-class MenusController extends Controller
+class CreateMenuController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function createmenu()
     {
-        $menu = Menu::with('restaurant')->get();
+       
+        $menu = Menu::all();
 		$dish = Dish::all();
-        return view('menu.create',compact(['menu'],['dish']));
+		$drink = Drink::all();
+		$category = Category::all();
+        return view('menu.createmenu',compact(['menu'],['dish'],['drink'],['category']));
     }
 
     /**
