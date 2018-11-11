@@ -18,7 +18,9 @@ class MenusController extends Controller
     {
         $menu = Menu::with('restaurant')->get();
 		$dish = Dish::all();
-        return view('menu.index',compact(['menu'],['dish']));
+		$drink =Drink::all();
+		$category =Category::all();
+        return view('menu.index',compact(['menu'],['dish'],['drink'],['category']));
     }
 
     /**
@@ -28,10 +30,12 @@ class MenusController extends Controller
      */
     public function create()
     {
+		$drink =Drink::all();
+		$category =Category::all();
 		$dish = Dish::all();
-       return view('menu.create',compact('dish'));
+		return view('menu.create',compact(['menu'],['dish'],['drink'],['category']));
     }
-
+ 
     /**
      * Store a newly created resource in storage.
      *
@@ -69,6 +73,11 @@ class MenusController extends Controller
             'name' => $request->categoryname,
 			'dish_id' => $request->dish_id
         ]);
+		Menu::create([
+				'name' => $request->categoryname,
+				'drink_id' => $request->drink_id,
+				'category_id'=>$request->category_id,
+		]);
     }
 
     /**

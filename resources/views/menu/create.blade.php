@@ -41,6 +41,20 @@
 		<option value="{{ $key->id }}">{{ $key->name }}</option>
 		@endforeach
 	</select>
+<p></p>
+	<p>Името на Менюто</p>
+	<input type="text" name="categoryname">
+	<p></p>
+	<select name="drink_id">
+		@foreach( $drink as $drink )
+		<option value="{{ $drink->id }}">{{ $drink->name }}</option>
+		@endforeach
+	</select>
+<select name="category_id">
+		@foreach( $category as $category )
+		<option value="{{ $category->id }}">{{ $category->name }}</option>
+		@endforeach
+	</select>
 	<p></p>
 	<input class="btn btn-secondary" type="submit" value="Въведи">
 </form>
