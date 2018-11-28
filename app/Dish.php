@@ -8,12 +8,14 @@ class Dish extends Model
 {
     protected $fillable = [
     						'name',
-    						'price',
-    						'quantity'
-    					];
+							'category',
+							'price_dish',
+							'img_path_dish',
+						];
+	
+		public function Menu(){
 
-    public function category()
-    {
-        return $this->belongsTo('App\Category');
-    }
+		return $this->belongsTo('App\Menu');
+		
+	}
 }

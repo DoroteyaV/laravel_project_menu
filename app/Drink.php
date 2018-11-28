@@ -6,14 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Drink extends Model
 {
-    protected $fillable = [ 
+    protected $fillable = [
     						'name',
-    						'price',
-    						'quantity'
-    					];
+							'category',
+							'price_drink',
+							'img_path_drink',
+						];
+	
+		public function Menu(){
 
-    public function menu()
-    {
-        return $this->belongsTo('App\Menu');
-    }
+		return $this->belongsTo('App\Menu');
+		
+	}
 }
+

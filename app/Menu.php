@@ -6,24 +6,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
 {
-    protected $fillable = [ 
+    protected $fillable = [
     						'name',
+							'dish_id',
 							'drink_id',
-							'category_id'
+							'img_path_dish',
 						];
+	
+	public function restaurant(){
 
-	public function restaurant()
-    {
-        return $this->belongsTo('App\Restaurant');
-    }
+		return $this->hasOne('App\Restaurant');
+	}
+	public function drink(){
 
-    public function category()
-    {
-        return $this->hasMany('App\Category');
-    }
+		return $this->belongsTo('App\Drink');
+	}
+	public function dish(){
 
-    public function drink()
-    {
-        return $this->hasMany('App\Drink');
-    }
+		return $this->belongsTo('App\Dish');
+	}
+	
 }
