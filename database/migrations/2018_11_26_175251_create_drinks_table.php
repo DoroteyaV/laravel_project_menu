@@ -19,6 +19,8 @@ class CreateDrinksTable extends Migration
             $table->string('category');
             $table->float('price_drink');
             $table->string('img_path_drink');
+			$table->unsignedInteger('menu_id');
+            $table->foreign('menu_id')->references('id')->on('menus');
             $table->timestamps();
         });
     }

@@ -8,22 +8,16 @@ class Menu extends Model
 {
     protected $fillable = [
     						'name',
-							'dish_id',
-							'drink_id',
-							'img_path_dish',
 						];
 	
-	public function restaurant(){
+	public function Drink(){
 
-		return $this->hasOne('App\Restaurant');
+		return $this->hasMany('App\Drink');
+		
 	}
-	public function drink(){
+	public function Dish(){
 
-		return $this->belongsTo('App\Drink');
+		return $this-> hasMany('App\Dish');
+		
 	}
-	public function dish(){
-
-		return $this->belongsTo('App\Dish');
-	}
-	
 }

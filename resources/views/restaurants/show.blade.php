@@ -17,5 +17,7 @@
 Разгледай менюто:
 <a href=" {{ route('menus.show', $restaurant->menu->id) }}">	{{ $restaurant->menu->name }}
 </p>
+
+
 </div>
 </body>
