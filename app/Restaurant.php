@@ -8,13 +8,15 @@ class Restaurant extends Model
 {
     protected $fillable = [
     						'name',
-    						'address',
-    						'capacity_friday',
-							'menu_id'
-    					];
+							'address',
+							'friday_capacity',
+							'menu_id',
+							'img_path',
+						];
+	
+		public function menu(){
 
-    public function menu()
-    {
-        return $this->hasOne('App\Menu');
-    }
+		return $this-> belongsTo('App\Menu');
+		
+	}
 }
