@@ -19,6 +19,8 @@ class CreateDishesTable extends Migration
             $table->string('category');
             $table->float('price_dish');
             $table->string('img_path_dish');
+			$table->unsignedInteger('menu_id');
+            $table->foreign('menu_id')->references('id')->on('menus');
             $table->timestamps();
         });
     }

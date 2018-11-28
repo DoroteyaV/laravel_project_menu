@@ -15,6 +15,9 @@
 			<td> 
 				Свободни места
 			</td>
+			<td> 
+				Коефициент
+			</td>
 	</tr>
 
 @foreach($restaurants as $restaurant)

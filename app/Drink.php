@@ -11,6 +11,7 @@ class Drink extends Model
 							'category',
 							'price_drink',
 							'img_path_drink',
+							'restaurant_id',
 						];
 	
 		public function Menu(){

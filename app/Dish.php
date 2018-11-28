@@ -10,7 +10,7 @@ class Dish extends Model
     						'name',
 							'category',
 							'price_dish',
-							'img_path_dish',
+							'restaurant_id',
 						];
 	
 		public function Menu(){
