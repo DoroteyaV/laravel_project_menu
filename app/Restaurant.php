@@ -10,13 +10,14 @@ class Restaurant extends Model
     						'name',
 							'address',
 							'friday_capacity',
-							'menu_id',
 							'img_path',
+							'coefficient',
 						];
 	
-		public function menu(){
+	
+	public function Menu(){
 
-		return $this-> belongsTo('App\Menu');
+		return $this->belongsTo('App\Menu');
 		
 	}
 }

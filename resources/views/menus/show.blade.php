@@ -2,15 +2,7 @@
 Име:
 	{{ $menu->name }}
 </p>
-<p>
-Храна:
-	{{ $menu->dish->name }}
-</p>
-<p>
-Цена:
-	{{ $menu->dish->price_dish }}лв.
-	
-</p>
+
 <p>
 Напитки:
 	{{ $menu->drink->name }}
