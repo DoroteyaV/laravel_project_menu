@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Menu;
+use App\Drink;
+use App\Dish;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
@@ -46,9 +48,11 @@ class MenuController extends Controller
      */
     public function show($id)
     {
-        $menu = Menu::findOrFail($id);
-
-       return view('menus.show', compact('menu'));
+        $menu_id = Menu::find($id);
+		$id = $menu_id->id;
+		$drink = Drink::where('menu_id', $id)->get();
+		$dish = Dish::where('menu_id', $id)->get();
+       return view('menus.show', compact('menu_id','drink' ,'id'),compact('dish'));
     }
 
     /**

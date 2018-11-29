@@ -3,21 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Menu;
-class RestaurantMenuController extends Controller
+
+class DrinkController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-     public function index()
+    public function index()
     {
-        $menu = Menu::with('menu_id')->get();
-
-        return view('restaurant.menu',compact('menu'));
+        //
     }
-
 
     /**
      * Show the form for creating a new resource.
