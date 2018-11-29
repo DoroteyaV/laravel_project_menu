@@ -1,13 +1,6 @@
 <p>
 Име:
-	{{ $menu->name }}
+	{{ var_dump($dish) }}
 </p>
 
-<p>
-Напитки:
-	{{ $menu->drink->name }}
-</p>
-<p>
-Цена:
-	{{ $menu->drink->price_drink }}лв.
-</p>
+
